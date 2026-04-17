@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVD AI Diagnostic System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>CVD AI Diagnostic System</h1>
+
+    <div class="upload-section">
+        <input type="file" id="imageInput" accept="image/*">
+        <input type="text" id="patientId" placeholder="Patient ID (optional)">
+        <input type="text" id="patientName" placeholder="Patient Name (optional)">
+        <input type="number" id="age" placeholder="Age (optional)">
+        <input type="text" id="gender" placeholder="Gender (optional)">
+        <button onclick="uploadImage()">Predict</button>
+    </div>
+
+    <div class="result-section">
+        <h2>Prediction Result</h2>
+        <p><strong>CEAP:</strong> <span id="ceap"></span></p>
+        <p><strong>Severity:</strong> <span id="severity"></span></p>
+        <p><strong>Confidence:</strong> <span id="confidence"></span></p>
+        <p><strong>Treatment:</strong> <span id="treatment"></span></p>
+        <p class="note" id="note"></p>
+    </div>
+
+    <div class="xai-section">
+        <h2>Explainable AI (XAI)</h2>
+        <p id="xaiText"></p>
+    </div>
+
+    <div class="images">
+        <div>
+            <h3>Original Image</h3>
+            <img id="originalImage">
+        </div>
+        <div>
+            <h3>Grad-CAM Heatmap</h3>
+            <img id="heatmapImage">
+        </div>
+    </div>
+
+    <div class="feedback-section">
+        <h2>Feedback</h2>
+        <select id="feedbackStatus">
+            <option value="Correct">Prediction is Correct</option>
+            <option value="Wrong">Prediction is Wrong</option>
+        </select>
+
+        <input type="text" id="correctLabel" placeholder="Correct CEAP Class (if wrong)">
+        <textarea id="remarks" placeholder="Additional Remarks"></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
